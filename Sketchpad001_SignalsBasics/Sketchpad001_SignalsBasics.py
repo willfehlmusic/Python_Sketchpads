@@ -187,4 +187,3 @@ plot.ylim(0,1)
 plot.xlim(20,20000)
 plot.savefig('fft_waves.png', bbox_inches="tight")
 plot.show()
-
