@@ -8,8 +8,10 @@ These are meant to be learning/tutorial tools.<br/>
 
 I have written articles that correspond with some of these files.<br/>
 Here are some links:<br/>
-<br/>
-<br/>
+https://theaudioprogrammer.com/what-is-an-impulse-response/ <br/>
+https://theaudioprogrammer.com/a-basic-understanding-of-digital-audio/ <br/>
+https://theaudioprogrammer.com/signal-analysis-i-what-is-a-wave-an-introduction-to-fouriers-theorem/ <br/>
+https://theaudioprogrammer.com/signal-analysis-ii-linear-vs-logarithmic-sine-sweep/ <br/>
 <br/>
 <br/>
 <br/>
