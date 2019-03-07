@@ -139,6 +139,7 @@ for n in range(512, 8, -4):
     plt.savefig('Frames/TruncatedResponse_'+a+'.png', bbox_inches="tight")
     count += 1
 
+
 # make gif out of each image file
 png_dir = 'Frames/'
 images = []
@@ -188,6 +189,8 @@ nCoeff = 128
 # compare windowing functions use 128+ samples for acceptable frequency graph
 negposTRange = np.linspace(-nCoeff,nCoeff,nCoeff*2)
 boxcar_window = scipy.signal.windows.boxcar(nCoeff*2)
+boxcar_window[0] = 0
+boxcar_window[len(boxcar_window)-1] = 0
 triang_window = scipy.signal.windows.triang(nCoeff*2)
 exponential_window = scipy.signal.windows.exponential(nCoeff*2)
 cosine_window = scipy.signal.windows.cosine(nCoeff*2)
@@ -223,7 +226,7 @@ plt.subplot(3, 2, 2)
 plt.plot(boxcar_windowResponse[0], boxcar_windowResponse[1])
 plt.title("Boxcar Window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -236,9 +239,9 @@ plt.xlabel("Time [samples]")
 plt.grid()
 plt.subplot(3, 2, 4)
 plt.plot(triang_windowResponse[0], triang_windowResponse[1])
-plt.title("Hamming window")
+plt.title("Triangle window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -253,7 +256,7 @@ plt.subplot(3, 2, 6)
 plt.plot(exponential_windowResponse[0], exponential_windowResponse[1])
 plt.title("Exponential window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -272,7 +275,7 @@ plt.subplot(3, 2, 2)
 plt.plot(cosine_windowResponse[0], cosine_windowResponse[1])
 plt.title("Cosine window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -288,7 +291,7 @@ plt.subplot(3, 2, 4)
 plt.plot(blackmanharris_windowResponse[0], blackmanharris_windowResponse[1])
 plt.title("Blackman-Harris window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -303,7 +306,7 @@ plt.subplot(3, 2, 6)
 plt.plot(hamming_windowResponse[0], hamming_windowResponse[1])
 plt.title("Hamming window")
 plt.ylabel("Amplitude [dB]")
-plt.xlabel("Frequency [Hz]")
+plt.xlabel("Frequency [normalized]")
 plt.grid()
 plt.tight_layout()
 
@@ -387,4 +390,3 @@ print('triangle \t', np.real(triang_window[0:nCoeff]) )
 print('cosine \t', np.real(cosine_window[0:nCoeff]) )
 print('blackman-harris \t', np.real(blackmanharris_window[0:nCoeff]) )
 print('hamming_window \t', np.real(hamming_window[0:nCoeff]) )
-
